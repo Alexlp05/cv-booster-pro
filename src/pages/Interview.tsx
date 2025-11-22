@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
@@ -12,27 +12,18 @@ const Interview = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
   const [timeLeft, setTimeLeft] = useState(120);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const question = "Parlez-moi d'une situation où vous avez géré un conflit dans votre équipe.";
-
-  useEffect(() => {
-    return () => {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-      }
-    };
-  }, []);
 
   const handleRecord = () => {
     if (!isRecording) {
       setIsRecording(true);
       setShowFeedback(false);
-      
-      timerRef.current = setInterval(() => {
+      // Simulate countdown
+      const interval = setInterval(() => {
         setTimeLeft(prev => {
           if (prev <= 1) {
-            if (timerRef.current) clearInterval(timerRef.current);
+            clearInterval(interval);
             setIsRecording(false);
             setShowFeedback(true);
             return 120;
@@ -41,7 +32,6 @@ const Interview = () => {
         });
       }, 1000);
     } else {
-      if (timerRef.current) clearInterval(timerRef.current);
       setIsRecording(false);
       setShowFeedback(true);
       setTimeLeft(120);
@@ -75,6 +65,7 @@ const Interview = () => {
               size="icon"
               className="shrink-0"
               onClick={() => {
+                // Play audio
                 const utterance = new SpeechSynthesisUtterance(question);
                 utterance.lang = 'fr-FR';
                 window.speechSynthesis.speak(utterance);

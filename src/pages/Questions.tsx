@@ -75,10 +75,10 @@ const Questions = () => {
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case "Facile": return "text-success";
-      case "Moyen": return "text-warning";
-      case "Difficile": return "text-critical";
-      default: return "text-secondary";
+      case "Facile": return "success";
+      case "Moyen": return "warning";
+      case "Difficile": return "critical";
+      default: return "secondary";
     }
   };
 
@@ -118,7 +118,7 @@ const Questions = () => {
         <div className="grid md:grid-cols-2 gap-6">
           {filteredQuestions.map((q, index) => (
             <Card 
-              key={q.id} 
+              key={q.id}
               className="p-6 hover:shadow-[var(--shadow-elevated)] transition-all duration-300 animate-in fade-in slide-in-from-bottom-2"
               style={{ animationDelay: `${index * 50}ms` }}
             >
@@ -126,7 +126,7 @@ const Questions = () => {
                 <div className="flex items-start gap-2">
                   <Badge 
                     variant="outline"
-                    className={getDifficultyColor(q.difficulty)}
+                    className={`text-${getDifficultyColor(q.difficulty)}`}
                   >
                     {q.difficulty}
                   </Badge>
