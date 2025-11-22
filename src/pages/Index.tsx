@@ -23,7 +23,7 @@ const Index = () => {
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
     setIsDragging(false);
-    
+
     const file = e.dataTransfer.files[0];
     if (file && file.type === "application/pdf") {
       handleFileUpload();
@@ -41,7 +41,7 @@ const Index = () => {
       title: "CV téléchargé !",
       description: "Analyse en cours...",
     });
-    
+
     setTimeout(() => {
       navigate("/analysis");
     }, 1500);
@@ -58,7 +58,7 @@ const Index = () => {
               <Sparkles className="w-6 h-6 text-primary-foreground" />
             </div>
             <h1 className="text-4xl font-bold text-foreground">
-              CV<span className="text-primary">Pro</span>
+              Career<span className="text-primary">Boost</span>
             </h1>
           </div>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -68,21 +68,19 @@ const Index = () => {
 
         {/* Upload Section */}
         <div className="max-w-2xl mx-auto mb-12 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
-          <Card 
-            className={`p-12 transition-all duration-300 cursor-pointer shadow-[var(--shadow-elevated)] hover:shadow-[var(--shadow-primary)] ${
-              isDragging ? "border-primary border-2 bg-primary/5 scale-105" : ""
-            }`}
+          <Card
+            className={`p-12 transition-all duration-300 cursor-pointer shadow-[var(--shadow-elevated)] hover:shadow-[var(--shadow-primary)] ${isDragging ? "border-primary border-2 bg-primary/5 scale-105" : ""
+              }`}
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
             onClick={() => document.getElementById("file-input")?.click()}
           >
             <div className="text-center">
-              <div className={`w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center transition-all ${
-                isDragging 
-                  ? "bg-primary text-primary-foreground scale-110" 
+              <div className={`w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center transition-all ${isDragging
+                  ? "bg-primary text-primary-foreground scale-110"
                   : "bg-muted text-muted-foreground"
-              }`}>
+                }`}>
                 {isDragging ? (
                   <FileText className="w-10 h-10" />
                 ) : (
