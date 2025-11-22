@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowLeft, Volume2, Video, Square, Clock } from "lucide-react";
+import { Volume2, Video, Square, Clock } from "lucide-react";
 import { CameraFeed } from "@/components/CameraFeed";
 import { FeedbackPanel } from "@/components/FeedbackPanel";
 
@@ -45,24 +46,7 @@ const Interview = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-10">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => navigate("/analysis")}
-            className="gap-2"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Retour
-          </Button>
-          <div className="flex items-center gap-2">
-            <Video className="w-5 h-5 text-primary" />
-            <span className="font-semibold text-foreground">Entraînement entretien</span>
-          </div>
-          <div className="w-20"></div>
-        </div>
-      </header>
+      <Navigation />
 
       <main className="container mx-auto px-6 py-8 max-w-5xl">
         {/* Question Card */}

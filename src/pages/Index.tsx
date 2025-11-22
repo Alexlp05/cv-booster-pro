@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Upload, FileText, Sparkles, Users } from "lucide-react";
@@ -48,6 +49,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
+      <Navigation />
       <div className="container mx-auto px-6 py-12">
         {/* Header */}
         <header className="text-center mb-16 animate-in fade-in slide-in-from-top-4 duration-500">
