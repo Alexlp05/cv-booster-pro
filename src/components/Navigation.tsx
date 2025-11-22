@@ -13,7 +13,7 @@ export const Navigation = () => {
               <Sparkles className="w-4 h-4 text-primary-foreground" />
             </div>
             <span className="text-xl font-bold text-foreground">
-              CV<span className="text-primary">Pro</span>
+              Career<span className="text-primary">Boost</span>
             </span>
           </NavLink>
 
@@ -27,10 +27,10 @@ export const Navigation = () => {
             >
               <div className="flex items-center gap-2">
                 <FileText className="w-4 h-4" />
-                <span>Analyser</span>
+                <span>Optimiser</span>
               </div>
             </NavLink>
-            
+
             <NavLink
               to="/history"
               className="px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all"
@@ -49,7 +49,7 @@ export const Navigation = () => {
             >
               <div className="flex items-center gap-2">
                 <Video className="w-4 h-4" />
-                <span>Questions</span>
+                <span>Interview</span>
               </div>
             </NavLink>
           </div>
